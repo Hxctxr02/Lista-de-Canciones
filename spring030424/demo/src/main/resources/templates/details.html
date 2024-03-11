@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}">Lista de Canciones</title>
+    <style>
+        /* Estilo para dar separación entre los elementos de la lista */
+        li {
+            margin-bottom: 10px; /* Puedes ajustar este valor según la separación deseada */
+            list-style-type: none; /* Para quitar los puntos de la lista */
+        }
+        /* Estilo para mostrar los detalles de cada canción de forma horizontal */
+        .song-details {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap; /* Para que los detalles se envuelvan en varias líneas si no hay suficiente espacio */
+        }
+        .song-details > div {
+            margin-right: 20px; /* Espacio entre cada detalle de la canción */
+            margin-bottom: 5px; /* Espacio entre cada fila */
+            flex: 1; /* Para que los divs se expandan para llenar el espacio disponible */
+        }
+        .song-details > div strong {
+            display: block; /* Para que cada encabezado esté en su propia línea */
+            font-weight: bold; /* Para hacer los encabezados en negrita */
+        }
+    </style>
+</head>
+<body>
+    <h1 th:text="${title}"></h1>
+    <ul>
+        <li th:each="song : ${songs}">
+            <div class="song-details">
+                <div>
+                    <strong>Nombre:</strong> <span th:text="${song.name}"></span>
+                </div>
+                <div>
+                    <strong>Artista:</strong> <span th:text="${song.artist}"></span>
+                </div>
+                <div>
+                    <strong>Álbum:</strong> <span th:text="${song.album}"></span>
+                </div>
+            </div>
+        </li>
+    </ul>
+</body>
+</html>
+
+
+
+
+
